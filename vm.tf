@@ -94,3 +94,16 @@ resource "azurerm_subnet_network_security_group_association" "nsg-devops" {
   network_security_group_id = azurerm_network_security_group.nsg-devops.id
 }
 
+# resource "azurerm_virtual_machine_extension" "script_test" {
+#   name                 = "script_test"
+#   virtual_machine_id   = azurerm_linux_virtual_machine.vm-devops.id
+#   publisher            = "Microsoft.Azure.Extensions"
+#   type                 = "CustomScript"
+#   type_handler_version = "2.1"
+
+#   settings = <<SETTINGS
+#     {
+#       "script": "https://savdapps.blob.core.windows.net/scripts/Install_ubuntu.sh"
+#     }
+# SETTINGS
+# }
