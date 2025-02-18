@@ -41,6 +41,8 @@ resource "azurerm_linux_virtual_machine" "vm-devops" {
   size                  = "Standard_D2s_v3"
   admin_username        = "oci"
   network_interface_ids = [azurerm_network_interface.nic-devops.id]
+  custom_data           = base64encode(file("./script/install_docker_test.sh")) //script para inicializar apos criacao da vm
+
   admin_ssh_key {
     username   = "oci"
     public_key = file("C:\\projects\\key-pars\\oci-portfolio-manual\\ssh-key-2024-10-31.key.pub")
